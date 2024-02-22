@@ -38,7 +38,7 @@ int main()
     int size = 6;
     int target = 11;
 
-    sort(arr, arr + size); // ######we use sort function to sort the array in the ascending order and for that we have include the header file of the algorithm(<algorithm>) library.
+    sort(arr, arr + size); // ######we use sort function to sort the array in the ascending order and for that we have to include the header file of the algorithm(<algorithm>) library.
     // ####the time complixity of the sort function is O(nlogn)
 
     int l = arr[0];
