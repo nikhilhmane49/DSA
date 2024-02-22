@@ -1,3 +1,15 @@
+
+
+  // 1Q key pair problem  || two sum problem
+
+  Description of that Question:----->> In this promblem (key pair problem) firstly we have to select the  target value(which is present in array) 
+                                       given by the user and we have to find out the sum of the two element in the array is  equal to the target value.
+                               
+
+
+Code:----->>
+
+
 #include <iostream>
 #include <algorithm>
 
@@ -5,9 +17,6 @@ using namespace std;
 
 int main()
 {
-
-    // 1Q key pair problem  || two sum problem
-
     //*****(1st Method to solve this proble but it has poor time Complexity)
 
     int arr[6] = {1, 2, 3, 4, 5, 6};
@@ -28,9 +37,14 @@ int main()
         }
     };
 
-    // #######but it is not the best solution for that Q ..
-    // ######the time complixity of this code is O(n^2)...that time complixity is not good for the problem
-    // #######know to over come this problem of time complixity of the code and for good solution we will make use of two pointer apporach
+   1) // #######but It is not the best solution for that Q ..
+   2)// ###### The time complixity of this code is O(n^2)...that time complixity is not good for the problem
+   3)// ####### Know to over come this problem of time complixity of the code and for good solution we will make use of two pointer apporach
+
+
+
+
+
 
     //******(2nd Method to solve this proble but it has good time Complexity)
     
@@ -38,8 +52,10 @@ int main()
     int size = 6;
     int target = 11;
 
-    sort(arr, arr + size); // ######we use sort function to sort the array in the ascending order and for that we have to include the header file of the algorithm(<algorithm>) library.
-    // ####the time complixity of the sort function is O(nlogn)
+    sort(arr, arr + size); 
+
+    1)// ######we use sort function to sort the array in the ascending order and for that we have to include the header file of the algorithm(<algorithm>) library.
+    2) // ####the time complixity of the sort function is O(nlogn)
 
     int l = arr[0];
     int h = arr[size - 1];
