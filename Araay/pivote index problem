@@ -1,0 +1,82 @@
+  ********find pivote index in the array******
+
+description of pivote index problem:----->> To find out the pivote index it should satisfied the condition of --->the sum of lefthandside elements   
+                                           of pivote index  and sum of righthandside elements of pivote ,both (lefthandside , righthandside) should be equal
+
+#include <iostream>
+#include <vector>
+
+int main(){
+
+  //(1st method)
+  // brute force approach
+
+  
+  int arr[5] = {1, 8, 3, 4, 5};
+   int size = 5;
+
+  //### i= Is poisition of the pivot element
+  //## j,k= Is the position of the element-->>it will only take the elements of array
+  
+
+   for (int i = 0; i < size; i++) {
+     int lsum = 0;
+     int rsum = 0;
+
+    for (int j = 0; j < i; j++) {
+      lsum = lsum + arr[j];
+     };
+
+     for (int k = i + 1; k < size; k++) {
+       rsum = rsum + arr[k];
+     };
+
+     cout << " for every  pivot index the value of rsum and lsum  is" << i << "sum of r" << rsum << "sum of l"<< lsum << endl;
+
+     if (lsum == rsum) {
+    cout<<"the value of the pivot index is"<<i<<endl;
+      break;
+     };
+  };
+
+
+  1)//##### time complixity of this code is O(n^2)----->(how)-> the time complixity of outer loop is==> o(n)
+                                                         the time complixity of inner loop is ==> o(n)+o(n)=o(n)
+                                                         so the time complixity of this code is==>o(n^2)(outloop*innerloop).
+
+  2)//######the time complixity of this code is O(n^2)...that time complixity is not good for the problem.
+
+
+ 3) //#######know to over come this problem of time complixity of the code and for good solution we will make use of two prefix sum approach.
+
+
+
+  //*****************(method2--->>prefix sum approach )
+
+
+   int arr[5]={1, 8, 3, 4, 5};
+   int size=5;
+
+  1)//###creating the two array
+
+  int rsum[5]={0};
+  int lsum[5]={0};
+
+  for(int i=1;i<size;i++){
+    lsum[i]=lsum[i-1]+arr[i-1];
+  };
+  for(int i=size-2;i>=0;i--){
+    rsum[i]=rsum[i+1]+arr[i+1];
+  };
+
+  for(int i=0;i<size;i++){
+    if(lsum[i]==rsum[i]){
+      cout<<"the value of the pivot index is"<<" "<<i<<endl;
+  
+    };
+  };
+
+  2)//######the time complixity of this code is O(n)--(how)--->o(n)+o(n)+o(n)=o(n).
+  
+  return 0;
+}
