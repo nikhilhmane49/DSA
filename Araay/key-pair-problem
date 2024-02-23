@@ -54,8 +54,10 @@ int main()
 
     sort(arr, arr + size); 
 
-    1)// ######we use sort function to sort the array in the ascending order and for that we have to include the header file of the algorithm(<algorithm>) library.
-    2) // ####the time complixity of the sort function is O(nlogn)
+    1)// ###### we use sort function to sort the array in the ascending order and for that we have to include the header file of the algorithm(<algorithm>) library.
+    2)//### arr: This is the pointer to the first element of the array to be sorted.
+    3)//## arr + size: points to the element immediately after the last element of the array.
+    4)//#### the time complixity of the sort function is O(nlogn).
 
     int l = arr[0];
     int h = arr[size - 1];
