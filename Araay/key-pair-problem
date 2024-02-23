@@ -46,7 +46,7 @@ int main()
 
 
 
-    //******(2nd Method to solve this proble but it has good time Complexity)
+    //******(2nd Method to solve this proble (two pointer apporach) and  it has good time Complexity)
     
     int arr[6] = {5, 2, 6, 3, 1, 4};
     int size = 6;
