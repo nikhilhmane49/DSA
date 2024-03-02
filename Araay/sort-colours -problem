@@ -12,6 +12,8 @@ code---->>>
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -26,7 +28,9 @@ int main()
      vector<int>v={0,1,2,0,1,2}; //######initialisation of vector and  initialisation of value in the vector
     
                                  
-  int size=v.size();
+  int size=v.size();         
+
+                               //######### used #include <algorithm> for sort funcation 
      sort(v.begin(),v.end());   //######### using the sorting function of the vector
                                 //########the time complixity of the sorting function
                                             is O(nlogn)
