@@ -1,1 +1,139 @@
 
+
+  //******3Q sorting colours
+
+   description----->> sort the colours in the array for example we have the array in this array we have three colours red,white,blue and we have to
+                      sort the array in the ascending order  and let red=0,white=1,blue=2.
+
+                  
+
+code---->>>
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+
+
+ ///********(1st method by using the sorting function )********************
+
+  we will use vector here
+
+     vector<int>v={0,1,2,0,1,2}; //######initialisation of vector and  initialisation of value in the vector
+    
+                                 
+  int size=v.size();
+     sort(v.begin(),v.end());   //######### using the sorting function of the vector
+                                //########the time complixity of the sorting function
+                                            is O(nlogn)
+
+  for(int i=0;i<size;i++){           //######printing the vector
+    cout<<v[i]<<" ";
+  };
+
+  ############## time complixity: the time complixity of this code is O(nlogn)...that time  complixity
+ 
+
+
+
+
+******************(2nd method by using counting method)*******************
+
+  vector<int> v = {0, 1, 2, 0, 1, 2};            //###########  initialisation of vector and initialisation of value in the vector
+   
+
+  int size = v.size();
+
+  int zero, onces, twos, i;
+  zero = onces = twos = i = 0;
+
+  for (int i = 0; i < size; i++) {
+    if (v[i] == 0) {
+      zero++;
+    }
+
+    else if (v[i] == 1) {
+      onces++;
+    }
+
+    else {
+      twos++;
+    }
+  }
+
+  while (zero--) {
+    v[i] = 0;
+    i++;
+  };
+  while (onces--) {
+    v[i] = 1;
+    i++;
+  };
+  while (twos--) {
+    v[i] = 2;
+    i++;
+  }
+
+
+  for (int i = 0; i < size; i++) {          //######## printing the vector
+    cout << v[i] << " ";
+  };
+
+  //######## time complexity :  the time complixity of this code is O(n)--(how)---> for the outer loop(for-loop-->o(n)
+                               for the three (while-loop)->> o(n+n+n)=o(3n)=o(n)) then after adding the compoixity of for loop        
+                               and while loop then will   get--->o(n)+o(n)-->(o(n)).      
+  
+
+
+ //######### space complexity:   the space complixity of this code is O(1)--(how)--->because we are using const varible
+                                 and the value of the const varible is not changing in the code(dose not depend on n).
+
+
+
+
+
+  //*****************(3rd method by using 3 pointer approach || in-place method)***************
+
+
+  
+  vector<int> v = {0, 1, 2, 0, 1, 2};          //######### initialisation of vector and initialisation of value in the vector
+
+  int size = v.size();
+
+  int l, m, h;
+  l = m = 0;
+  h = size - 1;
+
+  while (m <= h) {
+      if (v[m] == 0) {
+          swap(v[l], v[m]);
+          l++;
+          m++;
+      } else if (v[m] == 1) {
+          m++;
+      } else {
+          swap(v[m], v[h]);
+          h--;
+      }
+  }
+
+  // printing the vector
+  for (int i = 0; i < size; i++) {
+      cout << v[i] << " ";
+  }
+
+  //######## time complixity: the complixity of this code is O(n)--(how)--->while loop-->o(n).
+
+  //######### space complexity:   the space complixity of this code is O(1)--(how)--->because we are using const varible
+                                 and the value of the const varible is not changing in the code(dose not depend on n).
+
+
+
+
+
+return 0;
+}
