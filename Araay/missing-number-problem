@@ -1,0 +1,80 @@
+
+ //*******************4Q missing number in the vector*********
+
+
+//description ---->>we have vector and we have to find the missing number in the vector.
+
+
+code----->>>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+
+using namespace std;
+
+int main()
+{
+
+
+  //********(1st method using sort funcation)****************
+  
+  vector<int>v={0,2,5,6,3,1,4,7,9};                    //####initialised the vector and the value in the vector
+  
+  int size=v.size();
+
+  sort(v.begin(),v.end());                            //####using the sort function(for that we have to include the header file
+                                                             of the algorithm(<algorithm>)) library).
+
+  for(int i=0;i<size;i++){                             //### For loop to find the missing number in the vector.
+    if(v[i]!=i)
+    {
+      cout<<"the missing number is"<<" "<<i<<endl;
+      break;
+    }
+  };
+
+  //### time complixity :the time complixity of this code is O(nlogn)--(how)--->the time complix of sort function is O(nlogn) 
+                         and the time complixity of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
+
+
+
+  //####  space complixity : the space complixty is o(1)--(how)--->because we are using const varible and the value
+                              of the const varible is not changing in the code(dose not depend on n)
+
+
+
+
+
+
+  //****(2nd method using bitwise operrator(XOR opertror))**********
+
+  vector<int>v={0,2,5,6,3,1,4,7,9};
+
+  int size=v.size();
+
+int ans=0;
+
+  for(int i=0;i<size;i++){                               //#### here   we are using the XOR opertror to the vector value
+    ans=ans^v[i];
+  };
+
+  for(int i=1;i<=size;i++){                              //##### here we are using the XOR opertror to previous vectore value + vectore range 
+    ans=ans^i;
+  };
+
+  cout<<"the missing number is"<<" "<<ans<<endl;
+
+
+  // time complixity of this code is O(n)--(how)--->for tow for  loop-->o(n)+o(n)=o(n)
+  
+   //#### space complixity : the space complixty is o(1)--(how)--->because we are using const varible 
+                             and the value of the const varible is not changing in the code(dose not depend on n)
+
+
+
+
+return 0;
+
+}
