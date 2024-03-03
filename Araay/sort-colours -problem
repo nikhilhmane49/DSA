@@ -44,7 +44,9 @@ int main()
                        and the time complixity of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
 
 
-  ############## time complixity: the time complixity of this code is O(nlogn)...that time  complixity
+ 
+ //############## time complixity: the time complixity of this code is O(nlogn)...that time  complixity
+ //############ the time complixty is not so good so will jump to another method. 
  
 
 
