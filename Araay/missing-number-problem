@@ -40,9 +40,7 @@ int main()
 
 
 
-  //####  space complixity : the space complixty is o(1)--(how)--->because we are using const varible and the value
-                              of the const varible is not changing in the code(dose not depend on n)
-
+//############### the space complixty is o(n)  This is primarily due to the initialization of the vector
 
 
 
