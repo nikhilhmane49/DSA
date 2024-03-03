@@ -46,7 +46,8 @@ int main()
 
  
  //############## time complixity: the time complixity of this code is O(nlogn)...that time  complixity
-  //############### the space complixty is o(1)
+
+  //############### the space complixty is o(n)  This is primarily due to the initialization of the vector
 
 
  //############ the time complixty is not so good so will jump to another method. 
