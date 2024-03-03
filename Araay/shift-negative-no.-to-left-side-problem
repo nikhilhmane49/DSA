@@ -39,7 +39,7 @@ int main()
                           of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
 
 
-   //############### the space complixty is o(1)
+   //############### the space complixty is o(n)  This is primarily due to the initialization of the vector
 
    //############ the time complixty is not so good so will jump to another method.
 
