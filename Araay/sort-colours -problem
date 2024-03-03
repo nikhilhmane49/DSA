@@ -29,9 +29,10 @@ int main()
     
                                  
   int size=v.size();         
-
-                               //######### used #include <algorithm> for sort funcation 
-     sort(v.begin(),v.end());   //######### using the sorting function of the vector
+                                 
+                              
+                                 //######### used the sorting function of the vector
+     sort(v.begin(),v.end());   //######### used #include <algorithm> for sort funcation 
                                 //########the time complixity of the sorting function
                                             is O(nlogn)
 
