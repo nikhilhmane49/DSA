@@ -1,0 +1,83 @@
+ //******************5Q shift all the negative number to the left side of the vector************
+
+
+  // description---->>we have the vector and we have to shift all the negative number to the left side of the vector and 
+                     all the positive number to the right side of the vector and it is not compulsory that vector should be in sorted form .
+
+
+code----->>>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+
+using namespace std;
+
+int main()
+{
+
+
+//*********************(1st method usin sort funcation)***********
+  
+   vector<int>v={-1,2,3,-4,5,-6,7,8,};                         //####initiallisation of the vector and the value in the vector
+
+  int size=sizeof(v)/sizeof(int);                             //###new method to find the size of the vector
+
+  sort(v.begin(),v.end());                                   //### to using the sort function(for that we have to include the
+                                                                  header file of the algorithm(<algorithm>)) library).
+
+                                                            //########the time complixity of the sorting function  is O(nlogn)
+                                                            
+
+  for(int i=0;i<size;i++){                                   //### for loop for printing the vector
+    cout<<v[i]<<" ";
+  }
+
+
+  //### time complixty:  the time complixity of this code is O(nlogn)--(how)--->the time complix of sort function is O(nlogn) and the time complixity
+                          of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
+
+
+   //############### the space complixty is o(1)
+
+   //############ the time complixty is not so good so will jump to another method.
+
+
+
+  //*********************(2nd method using Dutch national flag || two pointer approach)*************
+
+
+     vector<int>v={-1,2,3,-4,5,-6,7,8,};                                //####initiallisation of the vector and the value in the vector
+
+     int size=sizeof(v)/sizeof(int);                                     //###new method to find the size of the vector
+
+
+  int l=0;
+  int h=size-1;
+  while(l<h){
+    
+    if(v[l]<0){
+      l++;
+    }
+    else if(v[h]>0){
+      h--;
+    }
+    else{
+      swap(v[l],v[h]);
+    }
+  };
+
+     for(int i=0;i<size;i++){                              //### for loop for printing the vector
+      cout<<v[i]<<" ";
+        };
+
+    //### time complixity: the time complixity of this code is O(n)--(how)--->the time complix of the for loop and the while loop is O(n)--->o(n)+o(n)=o(n).
+
+   //############### the space complixty is o(1).
+
+
+
+   return 0;
+
+   }
