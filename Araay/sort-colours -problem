@@ -39,6 +39,10 @@ int main()
     cout<<v[i]<<" ";
   };
 
+//### time complixty:  the time complixity of this code is O(nlogn)--(how)--->the time complix of sort function is O(nlogn) 
+                       and the time complixity of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
+
+
   ############## time complixity: the time complixity of this code is O(nlogn)...that time  complixity
  
 
