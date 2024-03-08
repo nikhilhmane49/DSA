@@ -1,0 +1,65 @@
+ //************8Q wave print matrix************
+
+
+description---->> the matrix is given and in this matrix we have to print the element in column wise 
+                  for example:----->>> 
+                                        ____                   ____   
+                                        |                         |
+                                        | 1     2     3      4    |                    
+                                        |                         |
+                                        | 5    6      7       8   |
+                                        |                         |
+                                        | 9    10     11      12  |
+                                        |                         |
+                                        |____                 ____|
+
+                     output---->>>1,5,9,10,6,2,3,7,11,12,8,4
+
+
+
+#include <iostream>
+
+
+using namespace std;
+
+int main()
+{
+
+
+
+  vector<vector<int>>v {  //####initiallisation of the vector and the initaialisation of the value in th matrix
+    {1,2,3,4},
+    {5,6,7,8},
+    {9,10,11,12},
+    
+  };
+
+ int rows=v.size(); //#### no. of rows
+  
+ int cols=v[0].size(); //#### no. of columns
+
+
+ for(int j=0;j<cols;j++){
+   
+   if((j & 1)==0)    { //#### if the startcol is even then we have to print the col from the up to down
+
+     //### using bitwise opertor to check the even or odd
+
+     //###### the least significant bit (rightmost bit) is always 0 since even numbers are divisible by 2.
+
+     for(int i=0;i<rows;i++){
+       cout<<v[i][j]<<" ";
+     };
+
+   }
+
+   else{
+     for(int i=rows-1;i>=0;i--){
+       cout<<v[i][j]<<" ";
+     }
+   }
+ 
+ }
+   
+  return 0;
+}
