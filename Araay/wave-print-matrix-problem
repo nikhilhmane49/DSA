@@ -19,6 +19,7 @@ description---->> the matrix is given and in this matrix we have to print the el
 code--------->>>
 
 #include <iostream>
+#include <vector>
 
 
 using namespace std;
