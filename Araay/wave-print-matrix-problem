@@ -16,6 +16,7 @@ description---->> the matrix is given and in this matrix we have to print the el
                      output---->>>1,5,9,10,6,2,3,7,11,12,8,4
 
 
+code--------->>>
 
 #include <iostream>
 
