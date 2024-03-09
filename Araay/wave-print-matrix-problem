@@ -1,4 +1,4 @@
- //************8Q wave print matrix************
+ //************8Q column-wise wave print matrix************
 
 
 description---->> the matrix is given and in this matrix we have to print the element in column wise 
@@ -41,7 +41,8 @@ int main()
 
  for(int j=0;j<cols;j++){
    
-   if((j & 1)==0)    { //#### if the startcol is even then we have to print the col from the up to down
+   if((j & 1)==0)    { //#### if the j is even then we have to print the col from the up to down
+                       //#### and if the j is odd then print the col form down to up.
 
      //### using bitwise opertor to check the even or odd
 
