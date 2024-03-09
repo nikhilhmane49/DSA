@@ -1,0 +1,121 @@
+
+//********************11 Q megre sorted array************
+
+description ----->>> 1)You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, 
+                       representing the number of elements in nums1 and nums2 respectively.
+
+                     2) Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+                     3) The final sorted array should not be returned by the function, but instead be stored inside the array nums1. 
+                        To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, 
+                        and the last n elements are set to 0 and should be ignored. nums2 has a length of n
+
+
+
+code----->>>
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+
+using namespace std;
+
+int main()
+{
+
+
+//***********(1st method using sort function)*********
+
+
+vector<int> v1{1, 2, 3, 0, 0, 0};
+  vector<int> v2{2, 5, 6};
+
+  int idx_v1 = 0; 
+
+  for (int i = 0; i < v2.size(); i++) {
+    
+      while (idx_v1 < v1.size() && v1[idx_v1] != 0) {
+          idx_v1++;        //######## Find the next zero element in v1
+      }
+
+      if (idx_v1 < v1.size()) {
+          v1[idx_v1] = v2[i]; //########### Assign the corresponding value from v2 to the zero element in v1
+      } else {
+          break;           //######## If there are no more zeros in v1, exit the loop
+      }
+  }
+
+#########sort the vector
+
+  sort(v1.begin(), v1.end()); //######## Sort the merged vector(v1) in ascending order
+                              //######### used #include <algorithm> for sort funcation 
+                              //########the time complixity of the sorting function  is O(nlogn)
+                                         
+
+  //##### Print the merged vector(v1) stored in v1
+  
+  for (int num : v1) {
+      cout << num << " ";
+  }
+
+
+  //###### the time complixity of the code is O(nlogn)+O(n+m)=O(nlogn)----->(how)the time complixity of
+            sort function is O(nlogn) and the time complixity of the  loops  is O(n+m)
+  
+
+  //############### the space complixty is o(n+m)--->The space required to store these vectors is directly proportional to the sizes of the vectors.
+
+
+
+
+
+  
+
+
+  //#############(2nd method using two pointer approach)#############
+
+
+  vector<int> v1{1, 2, 3, 0, 0, 0};
+  vector<int> v2{2, 5, 6};
+
+  int idx_v1 = 0; 
+
+  for (int i = 0; i < v2.size(); i++) {
+
+      while (idx_v1 < v1.size() && v1[idx_v1] != 0) {
+          idx_v1++;                                          //######## Find the next zero element in v1
+      }
+
+      if (idx_v1 < v1.size()) {
+          v1[idx_v1] = v2[i];                              //########### Assign the corresponding value from v2 to the zero element in v1
+      } else {
+          break;                                            //######## If there are no more zeros in v1, exit the loop
+      }
+  }
+
+  //#########sort the vector
+
+  int left = 0;
+  int right = v1.size() - 1;
+  while (left < right) {
+      if (v1[left] > v1[left + 1]) {
+          swap(v1[left], v1[left + 1]);
+      }
+      left++;
+      if (v1[right] < v1[right - 1]) {
+          swap(v1[right], v1[right - 1]);
+      }
+      right--;
+  }
+
+    //##### Print the merged vector(v1) stored in v1
+
+    for (int num : v1) {                                       //#####is a range-based for loop in C++. It iterates over each element in the vector
+                                                                      v1 and assigns it to the variable num.
+        cout << num << " ";
+    }
+   
+  return 0;
+}
