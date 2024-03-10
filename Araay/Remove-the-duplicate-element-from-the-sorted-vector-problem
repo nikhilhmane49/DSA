@@ -1,0 +1,67 @@
+//******************(12Q Remove the duplicate element from the sorted  vector)************)
+
+  //descripion----->>>1)You are given an integer array nums with possible duplicate elements ,in this we have to find the unique elements in the array and place them at the beginning of the array and then the remaining elements are placed at the end of the array(this sholud be igonred).
+
+
+  //2) And also find the number of unique elements in the array (k).
+
+  //3)The unique elements in the array should be in the order of their appearance in the array.
+
+
+
+
+
+
+code--------->>
+
+
+
+#include <iostream>
+#include <vector>
+
+
+ using namespace std;
+
+
+int main() {
+
+
+
+
+  //**************(method using two pointer approach)************
+
+   vector<int>v{1,2,3,3,4,4,4,5,6};
+  int size=v.size();
+
+  int i=1,j=0;
+
+  while(i<size){
+
+    if(v[i]==v[j]){
+      i++;
+    }
+    else{
+      j++;
+      v[j]=v[i];
+      i++;
+    }
+  }
+
+  cout<<"no. of unique elements in the array is"<<" : "<<j+1<<endl;
+
+//############# printing the unique elements in the vector
+for(int i=0;i<=j;i++){
+  cout<<v[i]<<" ";
+}
+
+
+  //##############Time coomplixity of the code is O(n)
+  //############### the space complixty is o(1)
+
+
+
+
+  return 0;
+
+}
+  
