@@ -1,0 +1,94 @@
+**************(Q16) Find the union of the two vector)***************
+
+  description----->>Given two integer vector nums1 and nums2, return an array of their union. Each element
+
+
+  code---->>
+
+code--->>>
+
+#include <iostream>
+#include <map>
+#include <set>
+
+
+  int main() {
+
+
+
+
+//***************(method 1st  using map )*************************
+  
+
+  vector<int>v{1,2,3,4,5,6};
+  vector<int>v2{4,5,6,7,8,9};
+  vector<int>v3;
+
+  map< int, int >freq;             //####map is a data structure that stores elements in a key-value pair.
+                                  //####it include the header file #include <map>
+  
+  
+  int n=v.size();
+  int m=v2.size();
+
+  
+
+  for(int i=0;i<n;i++){
+    freq[v[i]]++;
+  };
+ for(int i=0;i<m;i++){
+    freq[v2[i]]++;
+  };
+  for(auto it:freq){            //###auto it: freq: This syntax is a range-based for loop introduced in C++11
+                                //### It iterates over each element in the container freq.
+                               //###3.push_back(it.first): Inside the loop, we're accessing the first member of each element (it) in freq. Since freq is assumed to be a map-like container.
+    
+    v3.push_back(it.first);
+  }
+  for(int i=0;i<v3.size();i++){
+    cout<<v3[i]<<" ";
+  }
+
+
+
+  //### the time complixcity of the code is O(m+n)
+  //### the space complixty of the code is O(m+n))
+
+
+
+
+  //******************(method 2nd using set)*************************
+ 
+  
+
+
+   vector<int>v{1,2,3,4,5,6};
+    vector<int>v2{4,5,6,7,8,9};
+    vector<int>v3;
+
+
+  set<int>s;                   //###include header file #include <set>
+                               //###set is a data structure that stores unique elements in a sorted order.
+
+  for(int i=0;i<v.size();i++){
+    s.insert(v[i]);
+  };
+  for(int i=0;i<v2.size();i++){
+    s.insert(v2[i]);
+  };
+
+  for(auto & it:s){
+    v3.push_back(it);
+  };
+
+  for(int i=0;i<v3.size();i++){
+    cout<<v3[i]<<" ";
+  }
+
+
+      //### The time complixty is o(nlogn)------>the time complixity of insertion into the set is o(nlogn)
+     //#### the space complixty is o(n+m)
+
+
+return 0
+}
