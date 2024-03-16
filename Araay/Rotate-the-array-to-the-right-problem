@@ -1,0 +1,52 @@
+  //**************(Q15) rotate the array to the right)************
+
+
+  Description----->>Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+
+  code---->>>
+
+#include <iostream>
+
+  int main() {
+
+
+
+  vector<int> v{-1, -100, 3, 99};
+  int n = v.size();
+  int k = 2;
+
+  k = k % n;     //#####If k is less than n, then k % n will simply be equal to k.
+                  //#####If k is greater than or equal to n, k % n will yield a value in the range [0, n-1].
+                 //#####This ensures that the rotation will be performed correctly.
+
+
+
+  vector<int> temp(n);    //##### Temporary vector to store shifted elements
+
+  for (int i = 0; i < n; i++) {
+      if (i < k) {
+          temp[i] = v[n - k + i];
+      } else {
+          temp[i] = v[i - k];
+      }
+  }
+
+                                        
+  for (int i = 0; i < n; i++) {
+      v[i] = temp[i]                  #######// Copying elements from temp back to v
+  }
+
+  //####### Printing the result
+  for (int i = 0; i < n; i++) {
+      cout << v[i] << " ";
+  }
+  cout << "\n";
+
+
+  //##### The time complixty of the code is O(n)
+  //##### The space complixty of the code is O(n)
+
+  
+    return 0;
+}
