@@ -1,0 +1,69 @@
+//*****(Q15 two sum problem)*********)
+
+
+  //description---->>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+
+int main(){
+
+
+//**************1st method using for loop**************
+
+  vector<int>nums{1,4,6,7,5};
+
+
+  int target=9;
+
+  int size=nums.size();
+ 
+
+for(int i=0;i<size;i++){
+  for(int j=i+1;j<size;j++){
+    if(nums[i]+nums[j]==target){
+ cout<<i<<" "<<j;
+    }
+   
+  }
+}
+
+  //####Time-complixcity is O(n^2)
+  //####Space-complixcity is O(1)
+
+  //**************2nd method using sort method**************
+
+  vector<int>nums{1,4,2,3,5};
+
+  sort(nums.begin(),nums.end());
+  int target=9;
+
+  int right=nums.size()-1;
+  int left=0;
+
+
+  while(left<right){
+    if(nums[left]+nums[right]==target){
+      cout<<left<<" "<<right;
+      break;
+    }
+    else if(nums[left]+nums[right]<target){
+      left++;
+    }
+
+    else{
+      right--;
+    }
+  }
+
+//#####time-complixcity is O(nlogn)
+//#####space-complixcity is O(1)
+
+  
+  //####but the ans will come in reference with sorted vector(means in short the index is of sorted vector )
+
+  return 0;
+
+  }
