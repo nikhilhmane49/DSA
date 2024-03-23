@@ -1,0 +1,45 @@
+  //****************(Q18 maximum avgerage subarray***(sliding window))**********
+
+//description--->>You are given an integer array nums consisting of n elements, and an integer k.
+                  Find a contiguous subarray whose length is equal to k that has the maximum average value 
+                  and return this value. Any answer with a calculation error less than 10-5 will be accepted.
+ 
+  code---->>
+#include<iostream>
+#include<vector>
+
+int main(){
+
+  vector<int>nums{1,12,-5,-6,50,3};
+  int k=4;
+  int size=nums.size();
+  int i=0;
+  int j=k-1;
+
+  int sum=0;
+
+  for(int i=0;i<=j;i++){
+    sum=sum+nums[i];
+  };
+
+  int maxsum=sum;
+  j++;
+  while(j<size){
+
+    sum-=nums[i++];
+    sum+=nums[j++];
+
+    maxsum=max(maxsum,sum);
+
+    
+  }
+  cout<<maxsum<<endl;
+double avg=maxsum/(double)k;
+  cout<<avg;
+
+  return 0;
+
+
+
+
+  }
