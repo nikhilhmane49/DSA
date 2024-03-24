@@ -1,0 +1,73 @@
+//********************(Q20 stock buy and sell)**********
+
+
+description ---->>You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+               You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+              Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+
+#include<iostream>
+#include<vector>
+
+int main(){
+
+  //**********(1st method using for loop  Brute Force Approach)**********
+  
+  vector<int>nums{7,1,5,3,6,4};
+
+  int size=nums.size();
+
+  int maxi=0;
+  int sum=0;
+
+  for(int i=0;i<size;i++){
+    
+    for(int j=i+1;j<size;j++){
+
+
+      if(nums[j]>nums[i]){
+      sum=nums[j]-nums[i];
+
+      maxi=max(sum,maxi);
+      }
+    }
+  }
+
+  cout<<maxi;
+
+
+//####time complixty is o(n^2)
+  //####space complixty is o(1)
+
+
+
+  
+  //**************(2nd method using max and min function)**********)
+
+
+  vector<int>nums{7,1,5,3,6,4};
+  int size=nums.size();
+
+  int minprice=INT_MAX;
+  int maxi=0;
+
+  for(int i=0;i<size;i++){
+    minprice=min(minprice,nums[i]);
+    int maxprofit=nums[i]-minprice;
+
+    maxi=max(maxi,maxprofit);
+  }
+
+cout<<maxi;
+
+
+ //#### Time Complexity: O(n)
+ //#### Space Complexity: O(1)
+
+
+
+  
+   return 0;
+ }
