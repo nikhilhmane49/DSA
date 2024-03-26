@@ -1,0 +1,101 @@
+ //********************(Q21 Rearrange-array-elements-by-sign)**********
+
+
+  description--->>You are given a 0-indexed integer array nums of even length consisting of an equal number of positive and negative integers.
+
+                 You should return the array of nums such that the the array follows the given conditions:
+
+                 Every consecutive pair of integers have opposite signs.
+
+                 For all integers with the same sign, the order in which they were present in nums is preserved.
+  
+                 The rearranged array begins with a positive integer.
+
+
+code---->>>
+
+
+
+#include<iostream>
+#include<vector>
+
+
+int main(){
+
+
+
+  //*************(method 1)**********
+
+  vector<int>nums{1,2,3,-4,-1,-2};
+
+  int size=nums.size();
+
+  vector<int>pos;
+  vector<int>neg;
+
+  for(int i=0;i<size;i++){
+    if(nums[i]>0){
+      pos.push_back(nums[i]);
+    }
+
+    else{
+      neg.push_back(nums[i]);
+    }
+    
+  }
+
+
+  for(int i=0;i<size/2;i++){
+    nums[2*i]=pos[i];
+    nums[2*i+1]=neg[i];
+  };
+
+  for(int i=0;i<size;i++){
+    cout<<nums[i]<<" ";
+  }
+
+
+  // ####time complixty is o(n)
+  // ####space complixty is o(n)
+
+
+
+
+  //**************(method 2)**********
+
+  vector<int>nums{1,2,3,-4,-1,-2};
+
+
+   int size=nums.size();
+
+  
+  vector<int>ans(size,0);                 //##(size,0)means create a vector with no. of size elements, all initialized to 0, and so on.
+ 
+
+  int pos=0;
+  int neg=1;
+
+  for(int i=0;i<nums.size();i++){
+
+    if(nums[i]>0){
+      ans[pos]=nums[i];
+
+      pos+=2;
+    }
+
+    else{
+      ans[neg]=nums[i];
+      neg+=2;
+    }
+  }
+
+  for(int i=0;i<nums.size();i++){
+    cout<<ans[i]<<" ";
+  }
+
+  //####time complixty is o(n)
+  //####space complixty is o(n)
+
+  
+   return 0;
+ }
