@@ -1,0 +1,76 @@
+  //**********************(22Q set-matrix-zeroes)********
+
+
+  //description---->>Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+
+//code------>>
+
+
+
+
+#include<iostram>
+#include<vector>
+
+int main(){
+
+
+vector<vector<int>>matrix{
+  {1,1,1},
+  {1,0,1},
+  {1,1,1},
+  
+};
+
+  
+   int row=matrix.size();
+     int col=matrix[0].size();
+
+  vector<bool>zerorows(row,false);
+  vector<bool>zerocols(col,false);
+
+      for(int i=0;i<matrix.size();i++){
+          for(int j=0;j<matrix[i].size();j++){
+
+              if(matrix[i][j]==0){
+                 zerorows[i]=true;
+                 zerocols[j]=true;
+              }
+
+          }
+      }
+
+  for(int i=0;i<row;i++){
+
+      if(zerorows[i]){
+          for(int j=0;j<col;j++){
+              matrix[i][j]=0;
+          }
+      }
+
+
+  }
+
+  for(int j=0;j<col;j++){
+
+      if(zerocols[j]){
+          for(int i=0;i<row;i++){
+              matrix[i][j]=0;
+          }
+      }
+  }
+
+
+  for(int i=0;i<row;i++){
+    for(int j=0;j<col;j++){
+      cout<<matrix[i][j]<<" ";
+    }
+  cout<<endl;
+  }
+  
+
+  //####time complixty is o(n^2)
+  //#####space complixty is o(n)---->o(row + col)
+
+   return 0;
+ }
