@@ -5,13 +5,15 @@
 description------>>Given an integer array nums, find a subarray
                   that has the largest product, and return the product.
 
-
+Q nums = [2,3,-2,4]
 
 code--->
 
 #include<iostream>
 
 int main(){
+
+vector<int>nums={2,3,-2,4}
    int size = nums.size();
         long double pre = 1;
         long double suff = 1;
