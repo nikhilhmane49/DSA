@@ -1,0 +1,41 @@
+
+###################Maximum-product-subarray-problem #########
+
+
+description------>>Given an integer array nums, find a subarray
+                  that has the largest product, and return the product.
+
+
+
+code--->
+
+#include<iostream>
+
+int main(){
+   int size = nums.size();
+        long double pre = 1;
+        long double suff = 1;
+        long double ans = INT_MIN;
+
+        for (int i = 0; i < size; i++) {
+
+            if (pre == 0)
+                pre = 1;
+            if (suff == 0)
+                suff = 1;
+
+            pre *= nums[i];
+            suff *= nums[size - i - 1];
+
+            ans = max(ans, max(pre, suff));
+        }
+
+        return ans;
+
+}
+
+
+
+
+time complixty ---->o(n)
+space complixty ---->o(1)
