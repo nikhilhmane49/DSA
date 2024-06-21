@@ -11,6 +11,11 @@ description---->>Given an array of integers nums which is sorted in ascending or
 
   code---->>
 
+
+#include<iostram>
+using namespace std;
+int main(){
+
   vector<int>nums={-1,0,3,5,9,12};
 
   int target = 9;
@@ -27,7 +32,7 @@ description---->>Given an array of integers nums which is sorted in ascending or
         else right--;
     }
     return -1;
-
+}
 
     time complixty ---->o(n)
     space complixty ---->o(1)
