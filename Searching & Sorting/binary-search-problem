@@ -31,4 +31,6 @@ description---->>Given an array of integers nums which is sorted in ascending or
 
     time complixty ---->o(n)
     space complixty ---->o(1)
-    
+
+
+Link----leetcode--->https://leetcode.com/problems/binary-search/description/
