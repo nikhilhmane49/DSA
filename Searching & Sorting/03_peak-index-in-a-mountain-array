@@ -1,0 +1,44 @@
+//*********************peak-index-in-a-mountain-array
+
+
+
+You are given an integer mountain array arr of length n where the values increase to a peak element and then decrease.
+
+Return the index of the peak element.
+
+Your task is to solve it in O(log(n)) time complexity.
+
+
+
+#include<iostram>
+using namespace std;
+int main(){
+vector<int>arr={0,2,1,0};
+        
+ int size=arr.size();
+        int start=0;
+        int end=size-1;
+        int mid=start+(end-start)/2;
+    
+
+        while(start<end){
+            if(arr[mid]<arr[mid+1]){
+                //move to rigth
+                start=mid+1;
+            }
+            else{
+                end=mid;
+                
+            }
+            mid=start+(end-start)/2;
+        }
+        return end;
+}
+
+
+
+ time complixty ---->o(n)
+    space complixty ---->o(1)
+
+
+link-----leetcode----->https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
