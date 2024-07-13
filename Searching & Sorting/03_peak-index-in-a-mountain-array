@@ -37,7 +37,7 @@ vector<int>arr={0,2,1,0};
 
 
 
- time complixty ---->o(n)
+     time complixty ---->o(log n )
     space complixty ---->o(1)
 
 
