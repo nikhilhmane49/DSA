@@ -1,0 +1,51 @@
+
+//*********find-peak-element-problem
+
+
+A peak element is an element that is strictly greater than its neighbors.
+
+Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
+
+You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
+
+You must write an algorithm that runs in O(log n) time.
+
+
+
+code---
+
+
+#include<iostram>
+using namespace std;
+int main(){
+
+vector<int>arr={1,2,3,1};
+
+     int size=arr.size();
+        int start=0;
+        int end=size-1;
+        int mid=start+(end-start)/2;
+    
+
+        while(start<end){
+            if(arr[mid]<arr[mid+1]){
+                //move to rigth
+                start=mid+1;
+            }
+            else{
+                end=mid;
+                
+            }
+            mid=start+(end-start)/2;
+        }
+        return end;
+        
+    }
+
+
+
+ time complixty ---->o(n)
+    space complixty ---->o(1)
+
+
+link-----leetcode----->https://leetcode.com/problems/find-peak-element/
