@@ -38,7 +38,7 @@ int x=4;
 
 
 
- time complixty ---->o(n)
+     time complixty ---->o(log n )
     space complixty ---->o(1)
 
 
