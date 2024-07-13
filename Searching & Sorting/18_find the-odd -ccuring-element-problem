@@ -1,0 +1,61 @@
+//*****find the odd occuring element
+
+
+
+
+
+#include<iostram>
+using namespace std;
+int main(){
+
+
+int arr[]={1,1,5,5,2,2,3,3,2,4,4};
+
+  int size=sizeof(arr)/sizeof(arr[0]);
+
+
+    int s=0;
+  int e=size-1;
+  int mid=s+(e-s)/2;
+
+  while(s<=e){
+    //for single element
+
+    if(s==e){
+      return s;
+    }
+
+    //check the mid is even or odd
+
+    if(mid & 1){ //this condition is use to check the number is odd
+
+      if( mid>=0 && arr[mid]==arr[mid-1]){
+        //right search
+        s=mid+1;
+      }
+      else{
+        //left search
+        e=mid-1;
+      }
+    }
+
+    else{ //even condition
+
+      if(mid < size && arr[mid]==arr[mid+1]){
+        //right search
+        s=mid+2;
+      }
+      else{
+        //left search
+        e=mid;
+        
+      }
+    }
+     mid=s+(e-s)/2;
+  }
+    return -1;
+}
+
+
+time complixty ---->o(log n )
+    space complixty ---->o(1)
