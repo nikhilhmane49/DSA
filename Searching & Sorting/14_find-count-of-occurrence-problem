@@ -1,0 +1,60 @@
+//find-count-of-occurrence-problem
+
+
+
+
+#include<iostram>
+using namespace std;
+int main(){
+
+int arr[] = {1, 2, 3, 6, 6, 6, 7, 8, 9};
+  int target = 6;
+  int size = sizeof(arr) / sizeof(arr[0]);
+
+      int start = 0;
+    int end = size - 1;
+    int mid;
+    int first = -1;
+    int last = -1;
+
+    // Finding the first occurrence
+    while (start <= end) {
+        mid = start + (end - start) / 2;
+        if (arr[mid] == target) {
+            first = mid;
+            end = mid - 1;  // Continue to search on the left side
+        } else if (arr[mid] < target) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+
+    // Reset the variables for finding the last occurrence
+    start = 0;
+    end = size - 1;
+
+    // Finding the last occurrence
+    while (start <= end) {
+        mid = start + (end - start) / 2;
+        if (arr[mid] == target) {
+            last = mid;
+            start = mid + 1;  // Continue to search on the right side
+        } else if (arr[mid] < target) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+
+    // Return the count of occurrences
+    if (first == -1 || last == -1) {
+        return 0;  // Target not found
+    } else {
+        return (last - first + 1);
+    }
+}
+
+
+time complixty ---->o(log n )
+    space complixty ---->o(1)
