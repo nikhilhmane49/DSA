@@ -1,0 +1,45 @@
+//****find missing element
+
+
+
+
+
+#include<iostram>
+using namespace std;
+int main(){
+
+  int arr2[]={1,2,4,5,6};
+  int size=sizeof(arr2)/sizeof(arr2[0]);
+
+    int start=0;
+  int end=size-1;
+  int mid=start+(end-start)/2;
+  int ans=-1;
+
+  while(start<=end){
+
+  if(arr2[mid]-mid==1){
+    //move to rigth
+
+    start=mid+1;
+  }
+  else{
+    //store the ans
+    ans=mid;
+    //move to left
+    end=mid-1;
+  }
+  mid=start+(end-start)/2;
+  }
+
+  if(ans==-1){
+    return size;
+  }
+  return ans;
+
+  
+}
+
+
+   time complixty ---->o(log n )
+    space complixty ---->o(1)
