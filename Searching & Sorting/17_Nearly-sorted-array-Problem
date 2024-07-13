@@ -1,0 +1,36 @@
+//*****Nearly sorted array
+
+
+#include<iostram>
+using namespace std;
+int main(){
+
+
+int arr[]={20,10,30,50,40,70,60};
+  int size=sizeof(arr)/sizeof(arr[0]);
+  int target=70;
+
+    int s=0;
+  int e=size-1;
+  int mid=s+(e-s)/2;
+
+  while(s<=e){
+    if(arr[mid]==target) return mid;
+    if(mid > s && arr[mid-1]==target) return mid-1;
+    if( mid < e && arr[mid+1]==target) return mid+1;
+    if(target>arr[mid]){
+      //move to right
+      s=mid+2;
+    }
+    else{
+      e=mid-2;
+    }
+    mid=s+(e-s)/2;
+  }
+  return -1;
+};
+
+
+
+time complixty ---->o(log n )
+    space complixty ---->o(1)
