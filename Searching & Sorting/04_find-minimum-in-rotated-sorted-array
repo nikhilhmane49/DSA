@@ -38,7 +38,7 @@ vector<int>nums={3,4,5,1,2};
 
 
 
- time complixty ---->o(n)
+     time complixty ---->o(log n )
     space complixty ---->o(1)
 
 
