@@ -54,7 +54,7 @@ Note: Assume we are dealing with an environment that could only store integers w
         }
 
 
-         time complixty ---->o(n)
+             time complixty ---->o(log n )
         space complixty ---->o(1)
 
 
