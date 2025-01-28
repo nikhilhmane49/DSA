@@ -1,0 +1,33 @@
+#include <iostream>
+//******************** star pattern 17*************************
+using namespace std;
+int main() {
+       for(int i=0;i<n;i++){
+        //print space
+        for(int j=0;j<n-i-1;j++){
+            cout<<" ";
+        }
+
+        //print the alpalphabet 
+
+        char ch='A';
+        int breakpoint=(2*i+1)/2;
+        for(int k =0;k<2*i+1;k++){
+            cout<<ch<<" ";
+            if(k<breakpoint){
+              ch++;
+            }
+            else{
+                ch--;
+            }
+        }
+
+         //print space
+        for(int j=0;j<n-i-1;j++){
+            cout<<" ";
+        }
+
+        cout<<endl;
+}
+    return 0;
+}
