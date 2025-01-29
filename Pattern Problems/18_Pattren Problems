@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main() {
+//******************** star pattern 18*************************
+
+    // Write C++ code here
+    for(int i=0;i<5;i++){
+
+      for(char ch =('A'+5-1)-i;ch<=('A'+5-1);ch++){
+          cout<<ch<<" ";
+      }
+      cout<<endl;
+  }
+    return 0;
+}
