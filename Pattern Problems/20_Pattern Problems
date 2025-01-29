@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+//******************** star pattern 20*************************    
+    for (int i = 0; i < 2 * 6; i++) { 
+        for (int j = 0; j < 6; j++) { 
+            if (i % 2 == 0) { 
+                if (i == 0 || i == 2 * 6 - 1) {  
+                    cout << "*";
+                } else {  
+                    if (j == 0 || j == 6 - 1) { 
+                        cout << "*";
+                    } else {
+                        cout << " ";
+                    }
+                }
+            } else { 
+                cout << " ";
+            }
+        }
+        cout << endl;  
+    }
+
+    return 0;
+}
