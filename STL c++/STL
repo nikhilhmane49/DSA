@@ -1,0 +1,74 @@
+
+
+
+//********************* pair
+   pair<int,int> p={4,2};
+   cout<< p.first<<" "<< p.second; //output-->{4,2}
+   
+   //pair in pair
+   pair<int ,pair<int,int>> p1={1,{2,3}};
+   cout<<p1.first<<" "<<p1.second.first<<" "<<p1.second.second; //output {1,{2,3}}
+
+
+
+
+ //*************push in the vector
+    vector<int> v;
+    v.push_back(1);
+    v.emplace_back(2);
+    
+//push pair in vector 
+    vector<pair<int, int>> vec;  // Correct declaration
+    vec.emplace_back(1, 2);    //  emplace_back
+    vec.push_back({3,2});     //push_back
+
+
+    
+    //******Note emplace_back is faster than push_back
+    
+    
+    //push the single number for multiple time in the vector
+    vector<int>v1(5,100);
+
+
+
+   vector<int>v2(v1); //copy the vector v1 into the vector v2
+
+
+
+
+      for (auto it = v1.begin(); it != v1.end(); it++) {
+         cout << *it << " ";
+         }   //Iiteration
+
+
+ cout << endl;
+
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < vec.size(); i++) {
+        cout << "(" << vec[i].first << ", " << vec[i].second << ") ";
+    }
+    cout << endl;
+     for (int j = 0; j < v1.size(); j++) {
+        cout << v1[j] << " ";
+    }
+    
+    cout << endl;
+     for (int j = 0; j < v2.size(); j++) {
+        cout << v2[j] << " ";
+    }
+
+
+
+
+
+
+
+
+
+
+    
