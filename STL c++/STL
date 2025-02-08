@@ -153,7 +153,10 @@ for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
     ls.emplace_back(3);//{2,3}
     ls.push_front(5);//{5,2,3}
     ls.emplace_front(6);//{6,5,2,3}
-  
+
+
+//rest functions same as vector
+//begin,end,rbegin,rend,clear,insert,size,swap......
 
 
 
