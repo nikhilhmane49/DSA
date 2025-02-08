@@ -62,7 +62,44 @@
         cout << v2[j] << " ";
     }
 
+//***************methods in the vector
 
+vector<int> v = {1, 2, 3, 4, 5, 6};
+
+    // Use iterator to point to the last element
+    vector<int>::iterator it = v.end() - 1;
+    cout << *it << " ";  // This will print 6
+    
+     // Use iterator to point to the first element
+    vector<int>::iterator it2 = v.begin();
+    cout << *it2 << " ";  // This will print 1
+
+//the iteration will be in reverse patten 
+    vector<int>::reverse_iterator it3 = v.rend()-1;
+    cout << *it3 << " ";  // This will print 1
+
+//the iteration will be in reverse patten 
+    vector<int>::reverse_iterator it4 = v.rbegin();
+    cout << *it4 << " ";  // This will print 6
+
+
+// Iterate through the vector in reverse
+    for (vector<int>::reverse_iterator it5 = v.rbegin(); it5 != v.rend(); ++it5) {
+        cout << *it5 << " ";  // Prints 6 5 4 3 2 1
+    }
+    
+    
+    // Iterate through the vector 
+    for (vector<int>::iterator it6 = v.begin(); it6 != v.end(); ++it6) {
+        cout << *it6 << " ";  // Prints 1 2 3 4 5 6
+    }
+
+
+// On the place of vector<int>::iterator we can write auto 
+
+for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
+        cout << *it7 << " ";  // Prints 1 2 3 4 5 6
+    }
 
 
 
