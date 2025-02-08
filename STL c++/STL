@@ -128,7 +128,17 @@ for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
     
     v.insert(v.begin(),copy.begin(),copy.end());//{50,50,300,10,10,100,100}
     
-
+    vector<int>v={1,2,3,4,5,6};
+    
+  cout<<v.size(); //tell the size of the vector
+    
+  v.pop_back(); //Remove the last element in the vector
+    
+  vector<int>v1={1,2};
+  vector<int>v2={3,4};
+  
+  v1.swap(v2); //v1-->{3,4} v2-->{1,2}
+  
 
 
 
