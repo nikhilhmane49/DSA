@@ -142,7 +142,17 @@ for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
   v1.clear(); //delete all the elment in the vector
   
   cout<<v2.empty();//It tells you that vector is empty or not (0 OR 1)
-    
+
+
+
+//***************** List
+
+
+    list<int> ls;
+    ls.push_back(2);//{2}
+    ls.emplace_back(3);//{2,3}
+    ls.push_front(5);//{5,2,3}
+    ls.emplace_front(6);//{6,5,2,3}
   
 
 
