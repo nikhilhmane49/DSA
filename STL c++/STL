@@ -138,6 +138,11 @@ for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
   vector<int>v2={3,4};
   
   v1.swap(v2); //v1-->{3,4} v2-->{1,2}
+
+  v1.clear(); //delete all the elment in the vector
+  
+  cout<<v2.empty();//It tells you that vector is empty or not (0 OR 1)
+    
   
 
 
