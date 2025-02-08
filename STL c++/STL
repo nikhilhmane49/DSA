@@ -106,6 +106,16 @@ for (auto it7 = v.begin(); it7 != v.end(); ++it7) {
 
 
 
+//***************Erase in vector
+
+  vector<int> v = {1, 2, 3, 4, 5, 6};
+
+   v.erase(v.begin()+1); // deleting 2 element in the vector that is (2)
+   
+   v.erase(v.begin()+2,v.begin()+4); //in this range is given to delete the element in the vector
+   
+
+
 
 
 
