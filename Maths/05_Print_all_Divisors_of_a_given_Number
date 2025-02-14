@@ -1,0 +1,56 @@
+
+
+
+Print all Divisors of a given Number
+
+
+182
+
+12
+Problem Statement: Given an integer N, return all divisors of N.
+
+A divisor of an integer N is a positive integer that divides N without leaving a remainder. In other words, if N is divisible by another integer without any remainder, then that integer is considered a divisor of N.
+
+Examples
+Example 1:
+Input:N = 36
+Output:[1, 2, 3, 4, 6, 9, 12, 18, 36]
+Explanation: The divisors of 36 are 1, 2, 3, 4, 6, 9, 12, 18, 36.
+
+
+
+
+
+
+#include <iostream>
+#include<vector>
+
+using namespace std;
+int main() {
+  int n=36;
+  vector<int>vec;
+  
+  
+      for(int i=1;i<=n;i++){
+          
+          if(n%i==0){
+              vec.push_back(i);
+          }
+         
+      }
+      
+      for(int i=0;i<vec.size();i++){
+          cout<<vec[i]<<",";
+      }
+  
+
+    return 0;
+}
+
+
+
+
+
+
+
+
