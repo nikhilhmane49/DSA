@@ -1,0 +1,143 @@
+
+
+Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+
+The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+
+ 
+
+Example 1:
+
+Input: nums = [2,5,6,9,10]
+Output: 2
+Explanation:
+The smallest number in nums is 2.
+The largest number in nums is 10.
+The greatest common divisor of 2 and 10 is 2.
+Example 2:
+
+Input: nums = [7,5,6,8,3]
+Output: 1
+Explanation:
+The smallest number in nums is 3.
+The largest number in nums is 8.
+The greatest common divisor of 3 and 8 is 1.
+
+
+
+
+
+
+method 1---->
+
+class Solution {
+public:
+
+ int gcd(int n1,int n2){
+    int gcd=1;
+
+    for(int i=1;i<=min(n1,n2);i++){
+
+    if(n1%i==0 && n2%i==0){
+        gcd=i;
+    }
+
+    }
+    return gcd;
+ }
+
+
+    int findGCD(vector<int>& nums) {
+        int maxi=INT_MIN;
+        int min=INT_MAX;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>maxi){
+
+                maxi=nums[i];
+            }
+            if(nums[i]<min){
+                min=nums[i];
+            }
+        }
+
+        return gcd(maxi,min);
+        
+    }
+};
+
+
+method 2 -->
+
+
+The Euclidean Algorithm is a method for finding the greatest common divisor of two numbers. It operates on the principle that the GCD of two numbers remains the same even if the smaller number is subtracted from the larger number.
+
+To find the GCD of n1 and n2 where n1 > n2:
+
+Repeatedly subtract the smaller number from the larger number until one of them becomes 0.
+Once one of them becomes 0, the other number is the GCD of the original numbers.
+Eg, n1 = 20, n2 = 15:
+
+gcd(20, 15) = gcd(20-15, 15) = gcd(5, 15)
+
+gcd(5, 15) = gcd(15-5, 5) = gcd(10, 5)
+
+gcd(10, 5) = gcd(10-5, 5) = gcd(5, 5)
+
+gcd(5, 5) = gcd(5-5, 5) = gcd(0, 5)
+
+Hence, return 5 as the gcd.
+
+
+
+class Solution {
+public:
+
+ int gcd(int a,int b){
+    // Continue loop as long as both
+    // a and b are greater than 0
+    while(a > 0 && b > 0) {
+        // If a is greater than b,
+        // subtract b from a and update a
+        if(a > b) {
+             // Update a to the remainder
+             // of a divided by b
+            a = a % b;
+        }
+        // If b is greater than or equal
+        // to a, subtract a from b and update b
+        else {
+            // Update b to the remainder
+            // of b divided by a
+            b = b % a; 
+        }
+    }
+    // Check if a becomes 0,
+    // if so, return b as the GCD
+    if(a == 0) {
+        return b;
+    }
+    // If a is not 0,
+    // return a as the GCD
+    return a;
+ }
+
+
+    int findGCD(vector<int>& nums) {
+        int maxi=INT_MIN;
+        int min=INT_MAX;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>maxi){
+
+                maxi=nums[i];
+            }
+            if(nums[i]<min){
+                min=nums[i];
+            }
+        }
+
+        return gcd(maxi,min);
+        
+    }
+};
+
+
