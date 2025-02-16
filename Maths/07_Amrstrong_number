@@ -1,0 +1,47 @@
+
+
+Problem Statement: Given an integer N, return true it is an Armstrong number otherwise return false.
+
+An Amrstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+
+Examples
+Example 1:
+Input:N = 153
+Output:True
+Explanation: 13+53+33 = 1 + 125 + 27 = 153
+Example 2:
+Input:N = 371
+Output: True
+Explanation: 33+53+13 = 27 + 343 + 1 = 371
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <cmath>  
+using namespace std;
+
+int main() {
+    int n = 153;
+    int original = n; 
+    int var = 0;
+    int lastdigit;
+
+    while (n > 0) {
+        lastdigit = n % 10;  // Extract last digit
+        var += pow(lastdigit, 3);  // Corrected power calculation
+        n /= 10;  // Remove last digit
+    }
+
+    if (var == original) {  // Compare with original number
+        cout << "true";  // Number is an Armstrong number
+    } else {
+        cout << "false";  // Not an Armstrong number
+    }
+
+    return 0;
+}
