@@ -1,0 +1,33 @@
+
+
+Print 1 to N using Recursion
+
+
+Prerequisite: The learner must know how to write a simple function in any language with parameters.
+
+Now, after understanding the basics of recursion, the recursion tree, and the base case of recursion we can solve some basic problems of recursion which would strengthen our concepts and make us understand how recursion functions at its core. In this article, we’ll print integers from 1 to N without using any Global Variable but by using function parameters. 
+
+Problem: Print from 1 to N using Recursion
+
+
+
+code-->
+
+
+
+#include <iostream>
+using namespace std;
+
+void numberfun(int n, int i = 1) {  
+    if (i <= n) {       
+        cout << i << " ";  // Print the current number
+        numberfun(n, i + 1);  // Recursive call with incremented value
+    }
+}
+
+int main() {
+    int n = 4;
+    numberfun(n);  // Call the function
+    cout << endl;
+    return 0;
+}
