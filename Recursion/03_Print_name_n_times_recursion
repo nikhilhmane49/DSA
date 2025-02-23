@@ -1,0 +1,33 @@
+
+Print Name N times using Recursion
+
+
+
+Prerequisite: The learner must know how to write a simple function in any language with parameters.
+
+Now, after understanding the basics of recursion, the recursion tree, and the base case of recursion we can solve some basic problems of recursion which would strengthen our concepts and make us understand how recursion functions at its core.
+
+Problem: Print your Name N times using recursion
+
+
+
+
+
+code--->
+
+
+#include <iostream>
+using namespace std;
+
+void namefun(int n) {  // Changed return type to void
+    if (n > 0) {       // Check if n is greater than 0
+        cout << "nikhil" << endl;  // Print "nikhil"
+        namefun(n - 1);  // Recursive call
+    }
+}
+
+int main() {
+    int n = 4;
+    namefun(n);  // Call the function
+    return 0;
+}
