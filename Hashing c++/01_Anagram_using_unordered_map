@@ -45,3 +45,12 @@ public:
          return true;
     }
 };
+
+
+
+
+
+note*************** this can be done using sort function also by sorting whole string and comapring the string this can be also done
+
+
+
