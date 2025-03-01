@@ -1,0 +1,70 @@
+sort_characters_by_frequency
+
+
+Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+
+Return the sorted string. If there are multiple answers, return any of them.
+
+ 
+
+Example 1:
+
+Input: s = "tree"
+Output: "eert"
+Explanation: 'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+Example 2:
+
+Input: s = "cccaaa"
+Output: "aaaccc"
+Explanation: Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
+Note that "cacaca" is incorrect, as the same characters must be together.
+Example 3:
+
+Input: s = "Aabb"
+Output: "bbAa"
+Explanation: "bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+
+
+
+code----->
+
+class Solution {
+public:
+    string frequencySort(string s) {
+   // Max heap: sorts characters by frequency (higher first)
+        priority_queue<pair<int, char>> pq;
+
+        // Step 1: Count frequency of each character
+        unordered_map<char, int> unordered;
+        for (char x : s) {
+            unordered[x]++;  // Increment frequency of character x
+        }
+
+        // Step 2: Push into max heap (sorted by frequency)
+        for (auto ele : unordered) {
+            pq.push({ele.second, ele.first});  // Push {frequency, character}
+        }
+
+        // Step 3: Build the sorted string
+        string ans = "";
+        while (!pq.empty()) {
+            pair<int, char> p = pq.top();
+            pq.pop();
+            ans.append(p.first, p.second);  // Append character p.first times
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+
+ note*****--->>Understanding priority_queue<pair<int, char>> pq; in C++
+A priority queue is a special type of queue where the highest priority element is always at the top. 
+In C++, priority_queue is implemented as a max heap by default, meaning elements are sorted in descending order.
+
+
