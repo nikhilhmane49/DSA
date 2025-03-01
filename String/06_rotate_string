@@ -1,0 +1,48 @@
+
+Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+ 
+
+Example 1:
+
+Input: s = "abcde", goal = "cdeab"
+Output: true
+Example 2:
+
+Input: s = "abcde", goal = "abced"
+Output: false
+
+
+
+code--->
+
+
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.length() != goal.length()) return false;
+
+        string concatenated = s + s; // Concatenate s with itself
+        return concatenated.find(goal) != string::npos; // Check if goal is a substring
+    }
+};
+
+
+
+
+note**********--->
+
+What is string::npos in C++?
+string::npos is a constant in C++ that represents a non-existent position in a string. It is used as a return value by functions like .find() when a substring is not found.
+
+Key Points:
+string::npos is the largest possible value for size_t, typically -1 (when cast to size_t).
+It is used to indicate failure in string operations like .find().
+
+
+
+
