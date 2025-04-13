@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+const int maxsize = 10;
+int que[maxsize];
+int front = -1; // Replaces 'start'
+int rear = -1;  // Replaces 'end'
+
+bool isEmpty() {
+    return (front == -1 || front > rear);
+}
+
+void push(int x) {
+    if (rear >= maxsize - 1) {
+        cout << "Queue overflow" << endl;
+        return;
+    }
+    if (front == -1) front = 0; // First push
+    rear++;
+    que[rear] = x;
+}
+
+void pop() {
+    if (isEmpty()) {
+        cout << "Queue underflow" << endl;
+        return;
+    }
+    front++;
+}
+
+int top() {
+    if (isEmpty()) {
+        cout << "Queue is empty" << endl;
+        return -1;
+    }
+    return que[front];
+}
+
+int sizea() {
+    if (isEmpty()) return 0;
+    return rear - front + 1;
+}
+
+int main() {
+    push(4);
+    push(5);
+    cout << "Top: " << top() << endl;
+    cout << "Size: " << sizea() << endl;
+
+    pop();
+    cout << "Top after pop: " << top() << endl;
+    cout << "Size after pop: " << sizea() << endl;  
+
+    return 0;
+}
