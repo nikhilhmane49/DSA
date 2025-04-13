@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 10; // Maximum size of stack
+int str[MAX];       // Stack array
+int topIndex = -1;  // Index of the top element
+
+// Push function
+void push(int x) {
+    if (topIndex >= MAX - 1) {
+        cout << "Stack overflow\n";
+    } else {
+        topIndex++;
+        str[topIndex] = x;
+    }
+}
+
+// Pop function
+void pop() {
+    if (topIndex < 0) {
+        cout << "Stack underflow\n";
+    } else {
+        topIndex--;
+    }
+}
+
+// Return top element
+int top() {
+    if (topIndex < 0) {
+        cout << "Stack is empty\n";
+        return -1;
+    } else {
+        return str[topIndex];
+    }
+}
+
+// Return current size of stack
+int sizea() {
+    return topIndex + 1;
+}
+
+int main() {
+    push(4);
+    push(5);
+    cout << "Top: " << top() << endl;
+    cout << "Size: " << sizea() << endl;
+
+    pop();
+    cout << "Top after pop: " << top() << endl;
+    cout << "Size after pop: " << sizea() << endl;
+
+    return 0;
+}
