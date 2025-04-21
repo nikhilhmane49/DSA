@@ -1,0 +1,120 @@
+
+
+poblem Statement: Given an infix expression, Your task is to convert the given infix expression to a postfix expression.
+
+
+
+Example 1:
+Input: a+b*(c^d-e)^(f+g*h)-i
+Output: abcd^e-fgh*+^*+i-
+Explanation: Infix to postfix
+
+Example 2:
+Input: (p+q)*(m-n)
+Output: pq+mn-*
+Explanation: Infix to postfix
+
+
+
+
+
+
+Approach: To convert Infix expression to Postfix
+1. Scan the infix expression from left to right. 
+
+2. If the scanned character is an operand, Print it. 
+
+3. Else, 
+
+If the precedence of the scanned operator is greater than the precedence of the operator in the stack or the stack is empty or the stack contains a ‘(‘, push the character into the stack. 
+Else, Pop all the operators from the stack which are greater than or equal to in precedence than that of the scanned operator. After doing that Push the scanned operator to the stack. 
+4. If the scanned character is an ‘(‘, push it into the stack. 
+
+5. If the scanned character is an ‘)’, pop the stack and output it until a ‘(‘ is encountered, and discard both the parenthesis. 
+
+6. Repeat steps 2-5 until the entire infix expression is scanned. 
+
+7. Print the output.
+
+8. Pop and print the output from the stack until it is not empty.
+
+
+
+
+code------->>>>
+
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+
+
+int pec(char c){
+        if(c=='^'){
+            return 3;
+        }
+        else if(c=='*'|| c=='/'){
+            return 2;
+        }
+        else if(c=='+'|| c=='-'){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+
+int main() {
+    
+    
+    string instring="a+b*(c^d-e)^(f+g*h)-i";
+    stack<char>st;
+    string ans="";
+    
+    for(int i=0;i<instring.length();i++){
+        
+        char c=instring[i];
+        
+        //handel for the oprand
+        if((c>='A'&& c<='Z')||(c>='a'&& c<='z')||(c>='0'&& c<='9')){
+            ans+=c;
+        }
+        else if(c=='('){
+            st.push('(');
+        }
+        else if(c==')'){
+            while(!st.empty() && st.top()!='('){
+                ans+=st.top();
+                st.pop();
+            }
+             if (!st.empty()) st.pop();
+        }
+        else{
+            while(!st.empty() && pec(c)<=pec(st.top())){
+                ans+=st.top();
+                st.pop();
+                
+            }
+            st.push(c);
+        }
+        
+        
+    }
+    
+    while(!st.empty()){
+        ans+=st.top();
+        st.pop();
+    }
+    
+    cout<<ans;
+    
+    return 0;
+    
+}
+
+
+// output-->abcd^e-fgh*+^*+i-
