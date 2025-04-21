@@ -1,0 +1,57 @@
+
+
+converting a prefix expression to an infix expression.
+
+
+Prefix Expression: *+AB-CD
+
+Converted Infix Expression: ((A + B) * (C - D))
+
+
+
+code---->>
+
+
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    stack<string> st;
+    string input = "+A*BC";  // Prefix expression
+
+    // Process the prefix expression from right to left
+    for (int i = input.length() - 1; i >= 0; i--) {
+        char c = input[i];
+
+        // If the character is an operand (letters or digits), push it onto the stack
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
+            st.push(string(1, c));  // Push the operand as a string
+        }
+        // If the character is an operator, pop two operands from the stack
+        else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            string op1 = st.top(); st.pop();
+            string op2 = st.top(); st.pop();
+
+            // Create the infix expression by placing the operator between the operands
+            string expr = "(" + op1 + string(1, c) + op2 + ")";
+
+            // Push the resulting expression back onto the stack
+            st.push(expr);
+        }
+    }
+
+    // Now, let's concatenate all elements from the stack into a single string
+    string result = "";
+    while (!st.empty()) {
+        result = st.top() + result;  // Add each element at the top to the result
+        st.pop();
+    }
+
+    // The stack is now empty, and the result string contains the final expression
+    cout << "Infix expression: " << result << endl;
+
+    return 0;
+}
