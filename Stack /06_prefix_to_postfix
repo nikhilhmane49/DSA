@@ -1,0 +1,55 @@
+
+
+
+Convert the prefix expression to postfix:
+
+
+Prefix: - + A * B C ^ D E
+Postfix: A B C * + D E ^ -
+
+
+
+
+
+code-->
+
+
+#include <iostream>
+#include <stack>
+#include <string>
+
+using namespace std;
+int main() {
+
+
+stack<string>st;
+string input="-+ABC";
+
+for(int i=input.length()-1;i>=0;i--){
+    char c=input[i];
+    
+    if(c>='A'&&c<='Z'||c>='a'&&c<='z'){
+        st.push(string(1, c));
+    }
+    else if(c=='+'||c=='-'||c=='*'||c=='/'||c=='^'){
+        string ele1=st.top();
+        st.pop();
+        string ele2=st.top();
+        st.pop();
+        
+       string str = ele1+ele2+c;
+        st.push(str);
+    }
+    
+    
+}
+
+string newans="";
+while(!st.empty()){
+    newans+=st.top();
+    st.pop();
+}
+
+cout<<newans;
+    return 0;
+}
