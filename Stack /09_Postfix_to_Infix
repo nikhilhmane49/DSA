@@ -1,0 +1,48 @@
+
+
+Q)Postfix to Infix Conversion
+
+
+Postfix:ABCD^*+
+Infix:(A + (B * (C ^ D)))
+
+
+code--->
+
+
+
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<stack>
+#include<string>
+
+using namespace std;
+int main() {
+
+    stack<string>st;
+    string input="ABCD^*+";
+    
+     for (int i = 0; i < input.length(); i++) {
+        char c = input[i];
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+            st.push(string(1, c));
+        } else if (c == '*' || c == '+' || c == '-' || c == '/' || c == '^') {
+            string op1 = st.top(); st.pop();
+            string op2 = st.top(); st.pop();
+            string temp = "("+op2 + string(1, c) +  op1+")";  // Prefix = op + operand2 + operand1
+            st.push(temp);
+        }
+    }
+    
+    string newans="";
+    while(!st.empty()){
+    newans+=st.top();
+    st.pop();
+}
+
+cout<<newans;
+
+
+    return 0;
+}
