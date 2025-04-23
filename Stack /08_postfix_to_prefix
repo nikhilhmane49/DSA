@@ -1,0 +1,37 @@
+
+Q)postfix_to_prefix
+
+
+
+Postfix: AB+CD-*
+Prefix: *-+ABCD
+
+
+
+code--->
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    stack<string> st;
+    string input = "AB+CD-*";  // Sample postfix expression
+    
+    for (int i = 0; i < input.length(); i++) {
+        char c = input[i];
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+            st.push(string(1, c));
+        } else if (c == '*' || c == '+' || c == '-' || c == '/' || c == '^') {
+            string op1 = st.top(); st.pop();
+            string op2 = st.top(); st.pop();
+            string temp = string(1, c) + op2 + op1;  // Prefix = op + operand2 + operand1
+            st.push(temp);
+        }
+    }
+
+    cout << "Prefix: " << st.top() << endl;
+
+    return 0;
+}
