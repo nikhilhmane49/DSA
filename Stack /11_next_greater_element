@@ -1,3 +1,56 @@
+main   concept-(MONOTONIC STACK)---->>
+
+
+ how we push the stack element in the increasing or decreasing order for MONOTONIC STACK?
+
+👉 We push normally, but before pushing,
+we pop all elements from the stack that break the order.
+
+That’s it!
+
+Example: Monotonic Increasing Stack
+(Top of stack always has the smallest elements)
+
+Suppose you are processing an array: [3, 1, 4, 2]
+
+Steps:
+
+Stack is empty → push 3 → Stack: [3]
+
+Next is 1:
+
+1 < 3 (breaks increasing order)
+
+pop 3 from stack
+
+Now push 1 → Stack: [1]
+
+Next is 4:
+
+4 > 1 (ok, order is fine)
+
+push 4 → Stack: [1, 4]
+
+Next is 2:
+
+2 < 4 (bad: 4 > 2)
+
+pop 4
+
+Now 2 > 1, fine.
+
+push 2 → Stack: [1, 2]
+
+
+
+
+
+
+
+
+
+
+
 
 Q)next-greater-element-
 
