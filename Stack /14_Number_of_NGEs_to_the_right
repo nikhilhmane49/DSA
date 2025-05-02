@@ -1,0 +1,74 @@
+Given an array, find the number of elements greater than each element in the array that exist to the right of that element.
+
+For example, given an array [2, 1, 2, 4, 3], we need to compute, for each element, how many elements in the array (to the right) are greater than that element.
+
+Input:
+A list of integers (array) arr[].
+
+Output:
+For each element arr[i], output the count of elements greater than arr[i] that appear to the right of arr[i].
+
+Example:
+Given the array arr = [2, 1, 2, 4, 3]:
+
+For arr[0] = 2, the greater elements to the right are [4, 3], so the count is 2.
+
+For arr[1] = 1, the greater elements to the right are [2, 4, 3], so the count is 3.
+
+For arr[2] = 2, the greater elements to the right are [4, 3], so the count is 2.
+
+For arr[3] = 4, there are no greater elements to the right, so the count is 0.
+
+For arr[4] = 3, there are no greater elements to the right, so the count is 0.
+
+Expected Output for Input [2, 1, 2, 4, 3]:
+Copy
+Edit
+2 3 2 0 0
+
+
+
+
+
+code--->
+
+
+
+
+
+
+#include <iostream>
+#include <stack>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> arr = {2, 1, 2, 4, 3};
+    int n = arr.size();
+    vector<int> count(n, 0);
+    
+    for(int i=0;i<n;i++){
+        stack<int>st;
+        for(int j=n-1;j>i;j--){
+            while(!st.empty()&&st.top()<arr[i]){
+                st.pop();
+            }
+            if(arr[i]<arr[j]){
+                st.push(arr[j]);
+            }
+            
+            
+        }
+        count[i]=st.size();
+        
+    }
+        
+    for (int i = 0; i < n; i++) {
+        cout << count[i] << " ";
+    
+        
+    }
+  
+
+    return 0;
+}
