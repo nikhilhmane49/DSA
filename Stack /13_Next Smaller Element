@@ -1,0 +1,55 @@
+
+Problem Description: Next Smaller Element
+Objective:
+Given an array of integers, find the Next Smaller Element (NSE) for every element.
+The NSE for an element x is the first smaller element on the right side of x in the array.
+If no such element exists, output -1 for that position.
+
+🔢 Input:
+An array of integers, e.g., arr[] = {4, 8, 5, 2, 25}
+
+🎯 Output:
+An array where each element is replaced by its Next Smaller Element or -1 if none exists.
+
+Example:
+
+Input:
+arr[] = {4, 8, 5, 2, 25}
+
+Output:
+[2, 5, 2, -1, -1]
+
+
+
+
+code--->
+
+#include <iostream>
+#include <stack>
+#include <vector>
+using namespace std;
+
+int main() {
+    int arr[] = {4, 8, 5, 2, 25};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    stack<int> st;
+    vector<int> ans(n); // initialize vector of size n
+
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top() >= arr[i]) {
+            st.pop();
+        }
+        if (!st.empty()) {
+            ans[i] = st.top();
+        } else {
+            ans[i] = -1;
+        }
+        st.push(arr[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << ans[i] << " ";
+    }
+
+    return 0;
+}
