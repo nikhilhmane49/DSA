@@ -20,20 +20,20 @@ int main()
 
   //********(1st method using sort funcation)****************
   
-  vector<int>v={0,2,5,6,3,1,4,7,9};                    //####initialised the vector and the value in the vector
+  vector<int>nums={0,2,5,6,3,1,4,7,9};                    //####initialised the vector and the value in the vector
   
-  int size=v.size();
+  int n=nums.size();
 
-  sort(v.begin(),v.end());                            //####using the sort function(for that we have to include the header file
-                                                             of the algorithm(<algorithm>)) library).
-
-  for(int i=0;i<size;i++){                             //### For loop to find the missing number in the vector.
-    if(v[i]!=i)
-    {
-      cout<<"the missing number is"<<" "<<i<<endl;
-      break;
-    }
-  };
+sort(nums.begin(),nums.end());
+           int n=nums.size();
+   
+   for(int i=0;i<nums.size();i++){
+       if(nums[i]!=i){
+           return i;
+           break;
+       }
+   }
+    return n;
 
   //### time complixity :the time complixity of this code is O(nlogn)--(how)--->the time complix of sort function is O(nlogn) 
                          and the time complixity of the for loop is O(n)--->o(nlogn)+o(n)=o(nlogn)(because we take the largest time complixity of the two))
