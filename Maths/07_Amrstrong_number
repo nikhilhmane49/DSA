@@ -22,25 +22,30 @@ Explanation: 33+53+13 = 27 + 343 + 1 = 371
 
 
 #include <iostream>
-#include <cmath>  
+#include <vector>
+#include <string>
+#include <cmath> // for pow()
+
 using namespace std;
 
 int main() {
-    int n = 153;
-    int original = n; 
-    int var = 0;
-    int lastdigit;
+    int number = 153;
+    int original = number;
+    string str = to_string(number);
 
-    while (n > 0) {
-        lastdigit = n % 10;  // Extract last digit
-        var += pow(lastdigit, 3);  // Corrected power calculation
-        n /= 10;  // Remove last digit
+    int n = str.length();  // number of digits
+    int result = 0;        // initialize to 0
+
+    while (number != 0) {
+        int last = number % 10;
+        result += pow(last, n);  // add digit^n
+        number /= 10;
     }
 
-    if (var == original) {  // Compare with original number
-        cout << "true";  // Number is an Armstrong number
+    if (result == original) {
+        cout << "This number is an Armstrong number";
     } else {
-        cout << "false";  // Not an Armstrong number
+        cout << "This number is not an Armstrong number";
     }
 
     return 0;
