@@ -8,6 +8,44 @@ description---->>>Given an integer array nums, return all the triplets [nums[i],
 //#########Q) 3-sum
 
 
+
+
+//*****************************************method1
+#include <iostream>
+
+
+using namespace std;
+
+int main() {
+    vector<int> num = {-1, 0, 1, 2, -1, -4};
+
+    for (int i = 0; i < num.size() - 2; i++) {
+        for (int j = i + 1; j < num.size() - 1; j++) {
+            for (int k = j + 1; k < num.size(); k++) {
+                if (num[i] + num[j] + num[k] == 0) {
+                    cout << "(" << num[i] << ", " << num[j] << ", " << num[k] << ")" << endl;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+time complixty ----->o(n^3)
+
+
+
+
+
+
+
+
+//*****************************************method1
     code---->>>
 
 #include<iostram>
