@@ -51,12 +51,36 @@ int main()
 
 
  //############ the time complixty is not so good so will jump to another method. 
+
+
+
+******************(2nd method by using selection sort)*******************
+
+
+
+vector<int> num = {2, 0, 2, 1, 1, 0};
+    method-1 selection sort
+    for(int i=0;i<num.size();i++){
+        for(int j=i+1;j<num.size();j++){
+            if(num[i]>num[j]){
+                swap(num[i],num[j]);
+            }
+        }
+    }
+
+ //############## time complixity: the time complixity of this code is O(n^2)...that time  complixity
+
+  //############### the space complixty is o(1)  This is primarily due to the initialization of the vector
+
+
+
+
  
 
 
 
 
-******************(2nd method by using counting method)*******************
+******************(3nd method by using counting method)*******************
 
   vector<int> v = {0, 1, 2, 0, 1, 2};            //###########  initialisation of vector and initialisation of value in the vector
    
@@ -111,7 +135,7 @@ int main()
 
 
 
-  //*****************(3rd method by using 3 pointer approach || in-place method)***************
+  //*****************(4th method by using 3 pointer approach || in-place method)***************
 
 
   
