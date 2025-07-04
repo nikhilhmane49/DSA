@@ -71,51 +71,36 @@ vector<int> v1{1, 2, 3, 0, 0, 0};
 
 
 
-  
+ //*****************************************2method 
 
 
-  //#############(2nd method using two pointer approach)#############
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int main() {
+    vector<int> num1 = {4, 7, 9, 0, 0};
+    vector<int> num2 = {1, 6};
+    int j = 0;
 
-  vector<int> v1{1, 2, 3, 0, 0, 0};
-  vector<int> v2{2, 5, 6};
-
-  int idx_v1 = 0; 
-
-  for (int i = 0; i < v2.size(); i++) {
-
-      while (idx_v1 < v1.size() && v1[idx_v1] != 0) {
-          idx_v1++;                                          //######## Find the next zero element in v1
-      }
-
-      if (idx_v1 < v1.size()) {
-          v1[idx_v1] = v2[i];                              //########### Assign the corresponding value from v2 to the zero element in v1
-      } else {
-          break;                                            //######## If there are no more zeros in v1, exit the loop
-      }
-  }
-
-  //#########sort the vector
-
-  int left = 0;
-  int right = v1.size() - 1;
-  while (left < right) {
-      if (v1[left] > v1[left + 1]) {
-          swap(v1[left], v1[left + 1]);
-      }
-      left++;
-      if (v1[right] < v1[right - 1]) {
-          swap(v1[right], v1[right - 1]);
-      }
-      right--;
-  }
-
-    //##### Print the merged vector(v1) stored in v1
-
-    for (int num : v1) {                                       //#####is a range-based for loop in C++. It iterates over each element in the vector
-                                                                      v1 and assigns it to the variable num.
-        cout << num << " ";
+    for (int i = 0; i < num1.size(); i++) {
+        if (num1[i] == 0 && j < num2.size()) {
+            num1[i] = num2[j++];
+        }
     }
-   
-  return 0;
+
+    // Bubble sort
+    for (int i = 0; i < num1.size() - 1; i++) {
+        for (int j = 0; j < num1.size() - 1 - i; j++) {
+            if (num1[j] > num1[j + 1]) {
+                swap(num1[j], num1[j + 1]);
+            }
+        }
+    }
+
+    for (int i = 0; i < num1.size(); i++) {
+        cout << num1[i] << " ";
+    }
+
+    return 0;
 }
